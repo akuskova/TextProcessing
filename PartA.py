@@ -18,9 +18,6 @@ def tokenize(textFilePath):
                         tokens.append(newToken.lower())
                         newToken = ""
 
-    if newToken != "":
-        tokens.append(newToken)
-
     return tokens
 '''
 O(n) - linear to the number of the tokens, since hash operations are constant (on average)
