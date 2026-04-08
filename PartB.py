@@ -15,5 +15,10 @@ def intersection(file1, file2):
 
 if __name__ == "__main__":
     main()
-    file1, file2 = sys.argv[1:3]
-    intersection(file1, file2)
+    try:
+        file1, file2 = sys.argv[1:3]
+        intersection(file1, file2)
+    except ValueError:
+        print("Error: Please provide two file arguments")
+    except FileNotFoundError as e:
+        print(f"Error: File not found - {e}")
