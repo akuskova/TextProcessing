@@ -8,16 +8,18 @@ O(n) - linear to the size of the file, since isalnum, isascii, append and lower 
 def tokenize(textFilePath):
     tokens = []
     newToken = ""
-    with open(textFilePath, 'r') as file:
+    with open(textFilePath, "r", encoding='utf-8', errors="replace") as file:
         for line in file:
             for char in line:
                 if char.isalnum() and char.isascii():
                     newToken += char
                 else:
-                    if newToken != "" :
+                    if newToken != "":
                         tokens.append(newToken.lower())
                         newToken = ""
-
+            if newToken != "":
+                tokens.append(newToken.lower())
+                newToken = ""
     return tokens
 '''
 O(n) - linear to the number of the tokens, since hash operations are constant (on average)
